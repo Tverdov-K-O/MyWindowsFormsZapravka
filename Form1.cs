@@ -47,7 +47,7 @@ namespace WindowsFormsClass_2
             {
                 Check += $"ТОПЛИВО: {comboBox2.Items[comboBox2.SelectedIndex].ToString()}\n" +
                           "ЭВРО05-B0\n" +
-                         $"\t{this.petrol.getPricebyIndex(comboBox2.SelectedIndex)} * {(Convert.ToDouble(PriceGroupBox_1.Text) / petrol.getDoublePriceByIndex(comboBox2.SelectedIndex)).ToString("0.00")} ЛИТР\t= {PriceGroupBox_1.Text}грн.\n";
+                         $"\t{this.petrol.getPricebyIndex(comboBox2.SelectedIndex)} * {(Convert.ToDouble(PriceGroupBox_1.Text) / petrol.getDoublePriceByIndex(comboBox2.SelectedIndex)).ToString("0.00")} ЛИТР\t= {PriceGroupBox_1.Text}\tгрн.\n";
             }
             if(checkHotDog.Enabled && numericUpDown1.Value != 0)
             {
