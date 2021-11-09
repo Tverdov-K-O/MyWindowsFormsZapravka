@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Security.Permissions;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace WindowsFormsClass_2
 {
@@ -15,9 +13,23 @@ namespace WindowsFormsClass_2
     public partial class Form1 : Form
     {
         Petrol petrol = new Petrol(); // класс бензин
+        public List<Product> products = new List<Product>()
+        {
+            new Product("Хот-дог", 50),
+            new Product("Гамбургер", 44.90),
+            new Product("Карт.-фи", 29),
+            new Product("Кока-кола", 17.90),
+            new Product("Пиво",24.60),
+            new Product("Вода",10.80),
+            new Product("Жвачка",9.50),
+            new Product("Булочка",15.40)
+        };
+
+        Product pd = new Product("Хот-дог", 50);
         public Form1()
         {
             InitializeComponent();
+            
 
             groupBoxPriceCocaCola.BackColor = Color.Transparent;
             groupBox1.BackColor = Color.Transparent;
@@ -25,6 +37,21 @@ namespace WindowsFormsClass_2
 
             comboBox2.Items.AddRange(petrol.Name);
             comboBox2.Text = comboBox2.Items[0].ToString();
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                products[i]._CheckBox.Location      = new Point(0, 5 + i * 25);
+                //
+                products[i]._TextBox.Location       = new Point(110, 5 + i * 25);
+                //
+                products[i]._NumericUpDown.Location = new Point(175, 5 + i * 25);
+                //
+                panelProducts.Controls.Add(products[i]._CheckBox);
+                panelProducts.Controls.Add(products[i]._TextBox);
+                panelProducts.Controls.Add(products[i]._NumericUpDown);
+                products[i]._CheckBox.CheckedChanged    += new System.EventHandler(this.checkBoxCheckedChanged);
+                products[i]._NumericUpDown.ValueChanged += new System.EventHandler(this.numericUpDownValueChanged);
+            }
         }
 
         // комбо-бокс с названием бензина
@@ -49,25 +76,25 @@ namespace WindowsFormsClass_2
                           "ЭВРО05-B0\n" +
                          $"\t{this.petrol.getPricebyIndex(comboBox2.SelectedIndex)} * {(Convert.ToDouble(PriceGroupBox_1.Text) / petrol.getDoublePriceByIndex(comboBox2.SelectedIndex)).ToString("0.00")} ЛИТР\t= {PriceGroupBox_1.Text}\tгрн.\n";
             }
-            if(checkHotDog.Enabled && numericUpDown1.Value != 0)
+            foreach (var item in products)
             {
-                Check += $" {checkHotDog.Text}:\t\t{textBoxPriceHotdog.Text} * {numericUpDown1.Value}\t= {Convert.ToDouble(textBoxPriceHotdog.Text) * (double)numericUpDown1.Value}\tгрн.\n";
-            }
-            if(checkGamburger.Enabled && numericUpDown2.Value != 0)
-            {
-                Check += $" {checkGamburger.Text}:\t{textBoxPriceGamburger.Text} * {numericUpDown2.Value}\t= {Convert.ToDouble(textBoxPriceGamburger.Text) * (double)numericUpDown2.Value}\tгрн.\n";
-            }
-            if(checkFrenchFries.Enabled && numericUpDown3.Value != 0)
-            {
-                Check += $" {checkFrenchFries.Text}:\t{textBoxPriceFrenchFries.Text} * {numericUpDown3.Value}\t= {Convert.ToDouble(textBoxPriceFrenchFries.Text) * (double)numericUpDown3.Value}\tгрн.\n";
-            }
-            if(checkCocaCola.Enabled && numericUpDown4.Value != 0)
-            {
-                Check += $" {checkCocaCola.Text}:\t{textBoxCocaCola.Text} * {numericUpDown4.Value} = {Convert.ToDouble(textBoxCocaCola.Text) * (double)numericUpDown4.Value}\tгрн.\n";
+                if (item._CountProduct > 0)
+                {
+                    Check += $" {item._CheckBox.Text}: \t{item._TextBox.Text} * {item._NumericUpDown.Value} = {Convert.ToDouble(item._TextBox.Text) * (double)item._NumericUpDown.Value}\tгрн.\n";
+                }
             }
             Check += $"	СУММА {FullPrice.Text}\n" +
                      $"ДАТА: {DateTime.Now.ToShortDateString()}\t\tВРЕМЯ: {DateTime.Now.ToShortTimeString()}\n";
             MessageBox.Show(Check, "\t\tЧек", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            XmlSerializer formatter = new XmlSerializer(typeof(Product));
+
+            var xmlFormater = new XmlSerializer(typeof(List<Product>));
+            using(var file = new FileStream("groups.xml", FileMode.Create))
+            {
+                xmlFormater.Serialize(file, products);
+            }
+
+            
         }
 
         // радио кнопка количесво
@@ -110,54 +137,40 @@ namespace WindowsFormsClass_2
             }
         }
 
-        // чекбокс хотдог
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        // чекбокс
+        private void checkBoxCheckedChanged(object sender, EventArgs e)
         {
-            numericUpDown1.Enabled = !numericUpDown1.Enabled;
-            numericUpDown1.Value = 0;
-        }
-        // чекбокс гамбургер
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
-        {
-            numericUpDown2.Enabled = !numericUpDown2.Enabled;
-            numericUpDown2.Value = 0;
-        }
-        // чекбокс картошка фри
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-            numericUpDown3.Enabled = !numericUpDown3.Enabled;
-            numericUpDown3.Value = 0;
-        }
-        // чекбокс кола
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            numericUpDown4.Enabled = !numericUpDown4.Enabled;
-            numericUpDown4.Value = 0;
+            foreach (Product item in products)
+            {
+                if(item._CheckBox.Focused)
+                {
+                    item._NumericUpDown.Enabled = !item._NumericUpDown.Enabled;
+                    item._NumericUpDown.Value = 0; 
+                }
+            }
         }
 
         // кол. продуктов
         private void numericUpDownValueChanged(object sender, EventArgs e)
         {
             double Price = 0;
-            if (checkHotDog.Enabled == true)
+            foreach (Product item in products)
             {
-                Price += (int)numericUpDown1.Value * Convert.ToDouble(textBoxPriceHotdog.Text);
-            }
-            if (checkGamburger.Enabled == true)
-            {
-                Price += (int)numericUpDown2.Value * Convert.ToDouble(textBoxPriceGamburger.Text);
-            }
-            if (checkFrenchFries.Enabled == true)
-            {
-                Price += (int)numericUpDown3.Value * Convert.ToDouble(textBoxPriceFrenchFries.Text);
-            }
-            if (checkCocaCola.Enabled == true)
-            {
-                Price += (int)numericUpDown4.Value * Convert.ToDouble(textBoxCocaCola.Text);
+                if (item._CheckBox.Checked)
+                {
+                    Price += (double)item._NumericUpDown.Value * item._Price;
+
+                }
+
             }
             PriceGroupBox_2.Text = Convert.ToString(Price);
             double fullPrice = Convert.ToDouble(PriceGroupBox_1.Text) + Convert.ToDouble(PriceGroupBox_2.Text);
             FullPrice.Text = Convert.ToString(fullPrice) + " грн.";
+        }
+
+        private void panelProducts_Scroll(object sender, ScrollEventArgs e)
+        {
+            this.BackgroundImage = System.Drawing.Image.FromFile("..\\..\\jpg\\фон.png");
         }
     }
     class Petrol
@@ -176,4 +189,63 @@ namespace WindowsFormsClass_2
             return Price[index];
         }
      }
+
+
+    [Serializable]
+    public class Product 
+    {
+        public  string        _Name          { get; set; } = "";
+        public double         _Price         { get; set; } = 0;
+        public  int           _CountProduct  { get { return (int)_NumericUpDown.Value;}}
+        [NonSerialized]
+        public  CheckBox      _CheckBox       = new CheckBox() { };
+        [NonSerialized]
+        public  TextBox       _TextBox        = new TextBox() { };
+        [NonSerialized]
+        public  NumericUpDown _NumericUpDown  = new NumericUpDown() { };
+
+        public Product() 
+        {
+            _CheckBox.Text = _Name;
+            _CheckBox.Size = new Size(110, 20);
+            //
+            _TextBox.ReadOnly = true;
+            _TextBox.Text = _Price.ToString("0.00");
+            _TextBox.Size = new Size(60, 20);
+            _TextBox.RightToLeft = RightToLeft.Yes;
+            _TextBox.ForeColor = Color.Black;
+            _TextBox.BackColor = Color.Green;
+            _TextBox.BorderStyle = BorderStyle.FixedSingle;
+            //
+            _NumericUpDown.Size = new Size(45, 22);
+            _NumericUpDown.TextAlign = HorizontalAlignment.Right;
+            _NumericUpDown.ForeColor = Color.Black;
+            _NumericUpDown.BackColor = Color.Green;
+            _NumericUpDown.Enabled = false;
+        }
+        public  Product(string n, double p) 
+        {
+            _Name  = n;
+            _Price = p; 
+            _CheckBox.Text = _Name;
+            _CheckBox.Size = new Size(110, 20);
+            //
+            _TextBox.ReadOnly    = true;
+            _TextBox.Text        = _Price.ToString("0.00");
+            _TextBox.Size        = new Size(60, 20);
+            _TextBox.RightToLeft = RightToLeft.Yes;
+            _TextBox.ForeColor   = Color.Black;
+            _TextBox.BackColor   = Color.Green;
+            _TextBox.BorderStyle = BorderStyle.FixedSingle;
+            //
+            _NumericUpDown.Size      = new Size(45, 22);
+            _NumericUpDown.TextAlign = HorizontalAlignment.Right;
+            _NumericUpDown.ForeColor = Color.Black;
+            _NumericUpDown.BackColor = Color.Green;
+            _NumericUpDown.Enabled   = false;
+            //
+
+        }
+    }
 }
+

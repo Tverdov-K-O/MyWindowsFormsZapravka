@@ -47,23 +47,12 @@ namespace WindowsFormsClass_2
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxPriceCocaCola = new System.Windows.Forms.GroupBox();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.panelProducts = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.checkGamburger = new System.Windows.Forms.CheckBox();
-            this.checkFrenchFries = new System.Windows.Forms.CheckBox();
-            this.checkCocaCola = new System.Windows.Forms.CheckBox();
-            this.checkHotDog = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.PriceGroupBox_2 = new System.Windows.Forms.Label();
-            this.textBoxPriceFrenchFries = new System.Windows.Forms.TextBox();
-            this.textBoxPriceGamburger = new System.Windows.Forms.TextBox();
-            this.textBoxPriceHotdog = new System.Windows.Forms.TextBox();
-            this.textBoxCocaCola = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.FullPrice = new System.Windows.Forms.Label();
@@ -72,10 +61,6 @@ namespace WindowsFormsClass_2
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBoxPriceCocaCola.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.SuspendLayout();
@@ -274,21 +259,10 @@ namespace WindowsFormsClass_2
             this.groupBoxPriceCocaCola.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBoxPriceCocaCola.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBoxPriceCocaCola.BackgroundImage")));
             this.groupBoxPriceCocaCola.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.groupBoxPriceCocaCola.Controls.Add(this.numericUpDown4);
-            this.groupBoxPriceCocaCola.Controls.Add(this.numericUpDown3);
-            this.groupBoxPriceCocaCola.Controls.Add(this.numericUpDown2);
-            this.groupBoxPriceCocaCola.Controls.Add(this.numericUpDown1);
+            this.groupBoxPriceCocaCola.Controls.Add(this.panelProducts);
             this.groupBoxPriceCocaCola.Controls.Add(this.label9);
             this.groupBoxPriceCocaCola.Controls.Add(this.label8);
-            this.groupBoxPriceCocaCola.Controls.Add(this.checkGamburger);
-            this.groupBoxPriceCocaCola.Controls.Add(this.checkFrenchFries);
-            this.groupBoxPriceCocaCola.Controls.Add(this.checkCocaCola);
-            this.groupBoxPriceCocaCola.Controls.Add(this.checkHotDog);
             this.groupBoxPriceCocaCola.Controls.Add(this.groupBox5);
-            this.groupBoxPriceCocaCola.Controls.Add(this.textBoxPriceFrenchFries);
-            this.groupBoxPriceCocaCola.Controls.Add(this.textBoxPriceGamburger);
-            this.groupBoxPriceCocaCola.Controls.Add(this.textBoxPriceHotdog);
-            this.groupBoxPriceCocaCola.Controls.Add(this.textBoxCocaCola);
             this.groupBoxPriceCocaCola.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.groupBoxPriceCocaCola.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBoxPriceCocaCola.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -296,54 +270,19 @@ namespace WindowsFormsClass_2
             this.groupBoxPriceCocaCola.Location = new System.Drawing.Point(286, 12);
             this.groupBoxPriceCocaCola.Name = "groupBoxPriceCocaCola";
             this.groupBoxPriceCocaCola.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBoxPriceCocaCola.Size = new System.Drawing.Size(245, 329);
+            this.groupBoxPriceCocaCola.Size = new System.Drawing.Size(252, 329);
             this.groupBoxPriceCocaCola.TabIndex = 1;
             this.groupBoxPriceCocaCola.TabStop = false;
             this.groupBoxPriceCocaCola.Text = "Мини-Кафе";
             // 
-            // numericUpDown4
+            // panelProducts
             // 
-            this.numericUpDown4.BackColor = System.Drawing.Color.Green;
-            this.numericUpDown4.Enabled = false;
-            this.numericUpDown4.Location = new System.Drawing.Point(177, 160);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(56, 22);
-            this.numericUpDown4.TabIndex = 26;
-            this.numericUpDown4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDown4.ValueChanged += new System.EventHandler(this.numericUpDownValueChanged);
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.BackColor = System.Drawing.Color.Green;
-            this.numericUpDown3.Enabled = false;
-            this.numericUpDown3.Location = new System.Drawing.Point(177, 128);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(56, 22);
-            this.numericUpDown3.TabIndex = 25;
-            this.numericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDownValueChanged);
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.BackColor = System.Drawing.Color.Green;
-            this.numericUpDown2.Enabled = false;
-            this.numericUpDown2.Location = new System.Drawing.Point(177, 92);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(56, 22);
-            this.numericUpDown2.TabIndex = 24;
-            this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDownValueChanged);
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.BackColor = System.Drawing.Color.Green;
-            this.numericUpDown1.Enabled = false;
-            this.numericUpDown1.Location = new System.Drawing.Point(177, 59);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(56, 22);
-            this.numericUpDown1.TabIndex = 23;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDownValueChanged);
+            this.panelProducts.AutoScroll = true;
+            this.panelProducts.Location = new System.Drawing.Point(6, 51);
+            this.panelProducts.Name = "panelProducts";
+            this.panelProducts.Size = new System.Drawing.Size(241, 179);
+            this.panelProducts.TabIndex = 0;
+            this.panelProducts.Scroll += new System.Windows.Forms.ScrollEventHandler(this.panelProducts_Scroll);
             // 
             // label9
             // 
@@ -365,54 +304,6 @@ namespace WindowsFormsClass_2
             this.label8.TabIndex = 21;
             this.label8.Text = "Цена:";
             // 
-            // checkGamburger
-            // 
-            this.checkGamburger.AutoSize = true;
-            this.checkGamburger.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.checkGamburger.Location = new System.Drawing.Point(7, 92);
-            this.checkGamburger.Name = "checkGamburger";
-            this.checkGamburger.Size = new System.Drawing.Size(97, 20);
-            this.checkGamburger.TabIndex = 20;
-            this.checkGamburger.Text = "Гамбургер";
-            this.checkGamburger.UseVisualStyleBackColor = true;
-            this.checkGamburger.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
-            // 
-            // checkFrenchFries
-            // 
-            this.checkFrenchFries.AutoSize = true;
-            this.checkFrenchFries.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.checkFrenchFries.Location = new System.Drawing.Point(7, 128);
-            this.checkFrenchFries.Name = "checkFrenchFries";
-            this.checkFrenchFries.Size = new System.Drawing.Size(95, 20);
-            this.checkFrenchFries.TabIndex = 19;
-            this.checkFrenchFries.Text = "Карт.- фри";
-            this.checkFrenchFries.UseVisualStyleBackColor = true;
-            this.checkFrenchFries.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
-            // 
-            // checkCocaCola
-            // 
-            this.checkCocaCola.AutoSize = true;
-            this.checkCocaCola.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.checkCocaCola.Location = new System.Drawing.Point(7, 160);
-            this.checkCocaCola.Name = "checkCocaCola";
-            this.checkCocaCola.Size = new System.Drawing.Size(93, 20);
-            this.checkCocaCola.TabIndex = 18;
-            this.checkCocaCola.Text = "Кока-кола";
-            this.checkCocaCola.UseVisualStyleBackColor = true;
-            this.checkCocaCola.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
-            // checkHotDog
-            // 
-            this.checkHotDog.AutoSize = true;
-            this.checkHotDog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkHotDog.Location = new System.Drawing.Point(7, 59);
-            this.checkHotDog.Name = "checkHotDog";
-            this.checkHotDog.Size = new System.Drawing.Size(76, 20);
-            this.checkHotDog.TabIndex = 17;
-            this.checkHotDog.Text = "Хот-дог";
-            this.checkHotDog.UseVisualStyleBackColor = true;
-            this.checkHotDog.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // groupBox5
             // 
             this.groupBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -420,7 +311,7 @@ namespace WindowsFormsClass_2
             this.groupBox5.Controls.Add(this.PriceGroupBox_2);
             this.groupBox5.Location = new System.Drawing.Point(6, 235);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(233, 88);
+            this.groupBox5.Size = new System.Drawing.Size(241, 88);
             this.groupBox5.TabIndex = 16;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "К оплате:";
@@ -438,59 +329,11 @@ namespace WindowsFormsClass_2
             // 
             this.PriceGroupBox_2.AutoSize = true;
             this.PriceGroupBox_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PriceGroupBox_2.Location = new System.Drawing.Point(41, 29);
+            this.PriceGroupBox_2.Location = new System.Drawing.Point(59, 29);
             this.PriceGroupBox_2.Name = "PriceGroupBox_2";
             this.PriceGroupBox_2.Size = new System.Drawing.Size(36, 37);
             this.PriceGroupBox_2.TabIndex = 0;
             this.PriceGroupBox_2.Text = "0";
-            // 
-            // textBoxPriceFrenchFries
-            // 
-            this.textBoxPriceFrenchFries.BackColor = System.Drawing.Color.Green;
-            this.textBoxPriceFrenchFries.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxPriceFrenchFries.Location = new System.Drawing.Point(109, 128);
-            this.textBoxPriceFrenchFries.Name = "textBoxPriceFrenchFries";
-            this.textBoxPriceFrenchFries.ReadOnly = true;
-            this.textBoxPriceFrenchFries.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBoxPriceFrenchFries.Size = new System.Drawing.Size(62, 22);
-            this.textBoxPriceFrenchFries.TabIndex = 14;
-            this.textBoxPriceFrenchFries.Text = "29";
-            // 
-            // textBoxPriceGamburger
-            // 
-            this.textBoxPriceGamburger.BackColor = System.Drawing.Color.Green;
-            this.textBoxPriceGamburger.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxPriceGamburger.Location = new System.Drawing.Point(109, 92);
-            this.textBoxPriceGamburger.Name = "textBoxPriceGamburger";
-            this.textBoxPriceGamburger.ReadOnly = true;
-            this.textBoxPriceGamburger.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBoxPriceGamburger.Size = new System.Drawing.Size(62, 22);
-            this.textBoxPriceGamburger.TabIndex = 13;
-            this.textBoxPriceGamburger.Text = "44,90";
-            // 
-            // textBoxPriceHotdog
-            // 
-            this.textBoxPriceHotdog.BackColor = System.Drawing.Color.Green;
-            this.textBoxPriceHotdog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxPriceHotdog.Location = new System.Drawing.Point(109, 59);
-            this.textBoxPriceHotdog.Name = "textBoxPriceHotdog";
-            this.textBoxPriceHotdog.ReadOnly = true;
-            this.textBoxPriceHotdog.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBoxPriceHotdog.Size = new System.Drawing.Size(62, 22);
-            this.textBoxPriceHotdog.TabIndex = 12;
-            this.textBoxPriceHotdog.Text = "50";
-            // 
-            // textBoxCocaCola
-            // 
-            this.textBoxCocaCola.BackColor = System.Drawing.Color.Green;
-            this.textBoxCocaCola.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxCocaCola.Location = new System.Drawing.Point(109, 160);
-            this.textBoxCocaCola.Name = "textBoxCocaCola";
-            this.textBoxCocaCola.ReadOnly = true;
-            this.textBoxCocaCola.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBoxCocaCola.Size = new System.Drawing.Size(62, 22);
-            this.textBoxCocaCola.TabIndex = 8;
-            this.textBoxCocaCola.Text = "17,90";
             // 
             // groupBox6
             // 
@@ -503,7 +346,7 @@ namespace WindowsFormsClass_2
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox6.Location = new System.Drawing.Point(12, 369);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(519, 181);
+            this.groupBox6.Size = new System.Drawing.Size(526, 181);
             this.groupBox6.TabIndex = 2;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Всего к оплате";
@@ -526,7 +369,7 @@ namespace WindowsFormsClass_2
             // 
             this.FullPrice.AutoSize = true;
             this.FullPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FullPrice.Location = new System.Drawing.Point(274, 97);
+            this.FullPrice.Location = new System.Drawing.Point(273, 87);
             this.FullPrice.Name = "FullPrice";
             this.FullPrice.Size = new System.Drawing.Size(40, 42);
             this.FullPrice.TabIndex = 2;
@@ -539,7 +382,7 @@ namespace WindowsFormsClass_2
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(543, 565);
+            this.ClientSize = new System.Drawing.Size(553, 565);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBoxPriceCocaCola);
             this.Controls.Add(this.groupBox1);
@@ -561,10 +404,6 @@ namespace WindowsFormsClass_2
             this.groupBox3.PerformLayout();
             this.groupBoxPriceCocaCola.ResumeLayout(false);
             this.groupBoxPriceCocaCola.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -574,16 +413,6 @@ namespace WindowsFormsClass_2
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Button btnCopy;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnMove;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBoxPriceCocaCola;
         private System.Windows.Forms.ComboBox comboBox2;
@@ -599,28 +428,17 @@ namespace WindowsFormsClass_2
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxSum;
-        private System.Windows.Forms.CheckBox checkGamburger;
-        private System.Windows.Forms.CheckBox checkFrenchFries;
-        private System.Windows.Forms.CheckBox checkCocaCola;
-        private System.Windows.Forms.CheckBox checkHotDog;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label PriceGroupBox_2;
-        private System.Windows.Forms.TextBox textBoxPriceFrenchFries;
-        private System.Windows.Forms.TextBox textBoxPriceGamburger;
-        private System.Windows.Forms.TextBox textBoxPriceHotdog;
-        private System.Windows.Forms.TextBox textBoxCocaCola;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label FullPrice;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDownCount;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panelProducts;
     }
 }
 
