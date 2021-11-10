@@ -93,7 +93,9 @@ namespace WindowsFormsClass_2
             // 
             this.textBox2.BackColor = System.Drawing.Color.AntiqueWhite;
             this.textBox2.Location = new System.Drawing.Point(118, 104);
+            this.textBox2.MaxLength = 16;
             this.textBox2.Name = "textBox2";
+            this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(143, 20);
             this.textBox2.TabIndex = 3;
             // 
@@ -101,6 +103,7 @@ namespace WindowsFormsClass_2
             // 
             this.textBox1.BackColor = System.Drawing.Color.AntiqueWhite;
             this.textBox1.Location = new System.Drawing.Point(118, 71);
+            this.textBox1.MaxLength = 16;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(143, 20);
             this.textBox1.TabIndex = 2;
